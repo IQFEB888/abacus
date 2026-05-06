@@ -29,6 +29,10 @@ class Officina
         return $result->fetch_all(MYSQLI_ASSOC);
     }
 
+    public function getConnection()
+    {
+        return $this->conn;
+    }
 
     public function cercaCompatibili($idServizio, $idPezzo, $idAccessorio)
     {   
