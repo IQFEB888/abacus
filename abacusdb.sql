@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Creato il: Apr 22, 2026 alle 09:26
--- Versione del server: 10.4.32-MariaDB
--- Versione PHP: 8.2.12
+-- Generation Time: Apr 30, 2026 at 05:25 PM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.2.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `accessorio`
+-- Table structure for table `accessorio`
 --
 
 CREATE TABLE `accessorio` (
@@ -34,7 +34,7 @@ CREATE TABLE `accessorio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dump dei dati per la tabella `accessorio`
+-- Dumping data for table `accessorio`
 --
 
 INSERT INTO `accessorio` (`CodiceArticolo`, `Descrizione`, `CostoUnitario`) VALUES
@@ -44,7 +44,7 @@ INSERT INTO `accessorio` (`CodiceArticolo`, `Descrizione`, `CostoUnitario`) VALU
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `autoveicolo`
+-- Table structure for table `autoveicolo`
 --
 
 CREATE TABLE `autoveicolo` (
@@ -58,7 +58,7 @@ CREATE TABLE `autoveicolo` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `cliente`
+-- Table structure for table `cliente`
 --
 
 CREATE TABLE `cliente` (
@@ -75,7 +75,7 @@ CREATE TABLE `cliente` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dump dei dati per la tabella `cliente`
+-- Dumping data for table `cliente`
 --
 
 INSERT INTO `cliente` (`Codice`, `Nome`, `cognome`, `password`, `Telefono`, `Mail`, `CodiceOTP`, `ScadenzaOTP`, `Status`, `Ruolo`) VALUES
@@ -85,7 +85,7 @@ INSERT INTO `cliente` (`Codice`, `Nome`, `cognome`, `password`, `Telefono`, `Mai
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `dipendente`
+-- Table structure for table `dipendente`
 --
 
 CREATE TABLE `dipendente` (
@@ -96,7 +96,7 @@ CREATE TABLE `dipendente` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `intervento`
+-- Table structure for table `intervento`
 --
 
 CREATE TABLE `intervento` (
@@ -111,7 +111,7 @@ CREATE TABLE `intervento` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `intervento_accessorio`
+-- Table structure for table `intervento_accessorio`
 --
 
 CREATE TABLE `intervento_accessorio` (
@@ -122,7 +122,7 @@ CREATE TABLE `intervento_accessorio` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `intervento_pezzo`
+-- Table structure for table `intervento_pezzo`
 --
 
 CREATE TABLE `intervento_pezzo` (
@@ -134,7 +134,7 @@ CREATE TABLE `intervento_pezzo` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `intervento_servizio`
+-- Table structure for table `intervento_servizio`
 --
 
 CREATE TABLE `intervento_servizio` (
@@ -146,7 +146,7 @@ CREATE TABLE `intervento_servizio` (
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `officina`
+-- Table structure for table `officina`
 --
 
 CREATE TABLE `officina` (
@@ -156,7 +156,7 @@ CREATE TABLE `officina` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dump dei dati per la tabella `officina`
+-- Dumping data for table `officina`
 --
 
 INSERT INTO `officina` (`Codice`, `Denominazione`, `Indirizzo`) VALUES
@@ -167,7 +167,7 @@ INSERT INTO `officina` (`Codice`, `Denominazione`, `Indirizzo`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `officina_accessorio`
+-- Table structure for table `officina_accessorio`
 --
 
 CREATE TABLE `officina_accessorio` (
@@ -177,7 +177,7 @@ CREATE TABLE `officina_accessorio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dump dei dati per la tabella `officina_accessorio`
+-- Dumping data for table `officina_accessorio`
 --
 
 INSERT INTO `officina_accessorio` (`CodiceOfficina`, `CodiceArticolo`, `Quantita`) VALUES
@@ -187,7 +187,7 @@ INSERT INTO `officina_accessorio` (`CodiceOfficina`, `CodiceArticolo`, `Quantita
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `officina_pezzo`
+-- Table structure for table `officina_pezzo`
 --
 
 CREATE TABLE `officina_pezzo` (
@@ -196,18 +196,10 @@ CREATE TABLE `officina_pezzo` (
   `Quantita` int(11) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
---
--- Dump dei dati per la tabella `officina_pezzo`
---
-
-INSERT INTO `officina_pezzo` (`CodiceOfficina`, `CodicePezzo`, `Quantita`) VALUES
-(1, 0, 10),
-(2, 2, 10);
-
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `officina_servizio`
+-- Table structure for table `officina_servizio`
 --
 
 CREATE TABLE `officina_servizio` (
@@ -216,17 +208,18 @@ CREATE TABLE `officina_servizio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dump dei dati per la tabella `officina_servizio`
+-- Dumping data for table `officina_servizio`
 --
 
 INSERT INTO `officina_servizio` (`CodiceOfficina`, `CodiceServizio`) VALUES
 (1, 10),
+(1, 12),
 (2, 11);
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `pezzo_ricambio`
+-- Table structure for table `pezzo_ricambio`
 --
 
 CREATE TABLE `pezzo_ricambio` (
@@ -236,7 +229,7 @@ CREATE TABLE `pezzo_ricambio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dump dei dati per la tabella `pezzo_ricambio`
+-- Dumping data for table `pezzo_ricambio`
 --
 
 INSERT INTO `pezzo_ricambio` (`CodicePezzo`, `Descrizione`, `CostoUnitario`) VALUES
@@ -246,7 +239,7 @@ INSERT INTO `pezzo_ricambio` (`CodicePezzo`, `Descrizione`, `CostoUnitario`) VAL
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `servizio`
+-- Table structure for table `servizio`
 --
 
 CREATE TABLE `servizio` (
@@ -256,17 +249,18 @@ CREATE TABLE `servizio` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Dump dei dati per la tabella `servizio`
+-- Dumping data for table `servizio`
 --
 
 INSERT INTO `servizio` (`Codice`, `CostoOrario`, `Descrizione`) VALUES
 (10, 100.00, 'Cambio Gomme'),
-(11, 70.00, 'Cambio Olio');
+(11, 70.00, 'Cambio Olio'),
+(12, 1.00, 'ciao');
 
 -- --------------------------------------------------------
 
 --
--- Struttura della tabella `tipo_intervento`
+-- Table structure for table `tipo_intervento`
 --
 
 CREATE TABLE `tipo_intervento` (
@@ -275,17 +269,17 @@ CREATE TABLE `tipo_intervento` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 --
--- Indici per le tabelle scaricate
+-- Indexes for dumped tables
 --
 
 --
--- Indici per le tabelle `accessorio`
+-- Indexes for table `accessorio`
 --
 ALTER TABLE `accessorio`
   ADD PRIMARY KEY (`CodiceArticolo`);
 
 --
--- Indici per le tabelle `autoveicolo`
+-- Indexes for table `autoveicolo`
 --
 ALTER TABLE `autoveicolo`
   ADD PRIMARY KEY (`Targa`),
@@ -293,19 +287,19 @@ ALTER TABLE `autoveicolo`
   ADD KEY `CodiceCliente` (`CodiceCliente`);
 
 --
--- Indici per le tabelle `cliente`
+-- Indexes for table `cliente`
 --
 ALTER TABLE `cliente`
   ADD PRIMARY KEY (`Codice`);
 
 --
--- Indici per le tabelle `dipendente`
+-- Indexes for table `dipendente`
 --
 ALTER TABLE `dipendente`
   ADD PRIMARY KEY (`User`);
 
 --
--- Indici per le tabelle `intervento`
+-- Indexes for table `intervento`
 --
 ALTER TABLE `intervento`
   ADD PRIMARY KEY (`Codice`),
@@ -315,123 +309,129 @@ ALTER TABLE `intervento`
   ADD KEY `CodiceTipoIntervento` (`CodiceTipoIntervento`);
 
 --
--- Indici per le tabelle `intervento_accessorio`
+-- Indexes for table `intervento_accessorio`
 --
 ALTER TABLE `intervento_accessorio`
   ADD PRIMARY KEY (`CodiceIntervento`,`CodiceArticolo`),
   ADD KEY `CodiceArticolo` (`CodiceArticolo`);
 
 --
--- Indici per le tabelle `intervento_pezzo`
+-- Indexes for table `intervento_pezzo`
 --
 ALTER TABLE `intervento_pezzo`
   ADD PRIMARY KEY (`CodiceIntervento`,`CodicePezzo`),
   ADD KEY `CodicePezzo` (`CodicePezzo`);
 
 --
--- Indici per le tabelle `intervento_servizio`
+-- Indexes for table `intervento_servizio`
 --
 ALTER TABLE `intervento_servizio`
   ADD PRIMARY KEY (`CodiceIntervento`,`CodiceServizio`),
   ADD KEY `CodiceServizio` (`CodiceServizio`);
 
 --
--- Indici per le tabelle `officina`
+-- Indexes for table `officina`
 --
 ALTER TABLE `officina`
   ADD PRIMARY KEY (`Codice`);
 
 --
--- Indici per le tabelle `officina_accessorio`
+-- Indexes for table `officina_accessorio`
 --
 ALTER TABLE `officina_accessorio`
   ADD PRIMARY KEY (`CodiceOfficina`,`CodiceArticolo`),
   ADD KEY `CodiceArticolo` (`CodiceArticolo`);
 
 --
--- Indici per le tabelle `officina_pezzo`
+-- Indexes for table `officina_pezzo`
 --
 ALTER TABLE `officina_pezzo`
   ADD PRIMARY KEY (`CodiceOfficina`,`CodicePezzo`),
   ADD KEY `CodicePezzo` (`CodicePezzo`);
 
 --
--- Indici per le tabelle `officina_servizio`
+-- Indexes for table `officina_servizio`
 --
 ALTER TABLE `officina_servizio`
   ADD PRIMARY KEY (`CodiceOfficina`,`CodiceServizio`),
   ADD KEY `CodiceServizio` (`CodiceServizio`);
 
 --
--- Indici per le tabelle `pezzo_ricambio`
+-- Indexes for table `pezzo_ricambio`
 --
 ALTER TABLE `pezzo_ricambio`
   ADD PRIMARY KEY (`CodicePezzo`);
 
 --
--- Indici per le tabelle `servizio`
+-- Indexes for table `servizio`
 --
 ALTER TABLE `servizio`
   ADD PRIMARY KEY (`Codice`);
 
 --
--- Indici per le tabelle `tipo_intervento`
+-- Indexes for table `tipo_intervento`
 --
 ALTER TABLE `tipo_intervento`
   ADD PRIMARY KEY (`Codice`);
 
 --
--- AUTO_INCREMENT per le tabelle scaricate
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT per la tabella `accessorio`
+-- AUTO_INCREMENT for table `accessorio`
 --
 ALTER TABLE `accessorio`
   MODIFY `CodiceArticolo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT per la tabella `cliente`
+-- AUTO_INCREMENT for table `cliente`
 --
 ALTER TABLE `cliente`
   MODIFY `Codice` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT per la tabella `intervento`
+-- AUTO_INCREMENT for table `intervento`
 --
 ALTER TABLE `intervento`
   MODIFY `Codice` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT per la tabella `officina`
+-- AUTO_INCREMENT for table `officina`
 --
 ALTER TABLE `officina`
   MODIFY `Codice` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT per la tabella `pezzo_ricambio`
+-- AUTO_INCREMENT for table `officina_pezzo`
+--
+ALTER TABLE `officina_pezzo`
+  MODIFY `CodiceOfficina` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `pezzo_ricambio`
 --
 ALTER TABLE `pezzo_ricambio`
   MODIFY `CodicePezzo` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT per la tabella `servizio`
+-- AUTO_INCREMENT for table `servizio`
 --
 ALTER TABLE `servizio`
-  MODIFY `Codice` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Codice` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- Limiti per le tabelle scaricate
+-- Constraints for dumped tables
 --
 
 --
--- Limiti per la tabella `autoveicolo`
+-- Constraints for table `autoveicolo`
 --
 ALTER TABLE `autoveicolo`
   ADD CONSTRAINT `autoveicolo_ibfk_1` FOREIGN KEY (`CodiceCliente`) REFERENCES `cliente` (`Codice`);
 
 --
--- Limiti per la tabella `intervento`
+-- Constraints for table `intervento`
 --
 ALTER TABLE `intervento`
   ADD CONSTRAINT `intervento_ibfk_1` FOREIGN KEY (`CodiceOfficina`) REFERENCES `officina` (`Codice`),
@@ -440,42 +440,35 @@ ALTER TABLE `intervento`
   ADD CONSTRAINT `intervento_ibfk_4` FOREIGN KEY (`CodiceTipoIntervento`) REFERENCES `tipo_intervento` (`Codice`);
 
 --
--- Limiti per la tabella `intervento_accessorio`
+-- Constraints for table `intervento_accessorio`
 --
 ALTER TABLE `intervento_accessorio`
   ADD CONSTRAINT `intervento_accessorio_ibfk_1` FOREIGN KEY (`CodiceIntervento`) REFERENCES `intervento` (`Codice`),
   ADD CONSTRAINT `intervento_accessorio_ibfk_2` FOREIGN KEY (`CodiceArticolo`) REFERENCES `accessorio` (`CodiceArticolo`);
 
 --
--- Limiti per la tabella `intervento_pezzo`
+-- Constraints for table `intervento_pezzo`
 --
 ALTER TABLE `intervento_pezzo`
   ADD CONSTRAINT `intervento_pezzo_ibfk_1` FOREIGN KEY (`CodiceIntervento`) REFERENCES `intervento` (`Codice`),
   ADD CONSTRAINT `intervento_pezzo_ibfk_2` FOREIGN KEY (`CodicePezzo`) REFERENCES `pezzo_ricambio` (`CodicePezzo`);
 
 --
--- Limiti per la tabella `intervento_servizio`
+-- Constraints for table `intervento_servizio`
 --
 ALTER TABLE `intervento_servizio`
   ADD CONSTRAINT `intervento_servizio_ibfk_1` FOREIGN KEY (`CodiceIntervento`) REFERENCES `intervento` (`Codice`),
   ADD CONSTRAINT `intervento_servizio_ibfk_2` FOREIGN KEY (`CodiceServizio`) REFERENCES `servizio` (`Codice`);
 
 --
--- Limiti per la tabella `officina_accessorio`
+-- Constraints for table `officina_accessorio`
 --
 ALTER TABLE `officina_accessorio`
   ADD CONSTRAINT `officina_accessorio_ibfk_1` FOREIGN KEY (`CodiceOfficina`) REFERENCES `officina` (`Codice`),
   ADD CONSTRAINT `officina_accessorio_ibfk_2` FOREIGN KEY (`CodiceArticolo`) REFERENCES `accessorio` (`CodiceArticolo`);
 
 --
--- Limiti per la tabella `officina_pezzo`
---
-ALTER TABLE `officina_pezzo`
-  ADD CONSTRAINT `officina_pezzo_ibfk_1` FOREIGN KEY (`CodiceOfficina`) REFERENCES `officina` (`Codice`),
-  ADD CONSTRAINT `officina_pezzo_ibfk_2` FOREIGN KEY (`CodicePezzo`) REFERENCES `pezzo_ricambio` (`CodicePezzo`);
-
---
--- Limiti per la tabella `officina_servizio`
+-- Constraints for table `officina_servizio`
 --
 ALTER TABLE `officina_servizio`
   ADD CONSTRAINT `officina_servizio_ibfk_1` FOREIGN KEY (`CodiceOfficina`) REFERENCES `officina` (`Codice`),
