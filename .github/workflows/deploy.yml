@@ -1,0 +1,37 @@
+name: Deploy via FRP
+
+on:
+  push:
+    branches:
+      - main
+    workflow_dispatch: // Permette di eseguire manualmente il workflow
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest //specifica l'ambiente di esecuzione
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1 // con 1 scarico solamente l'ultimo commit per risparmiare tempo e spazio
+
+      - name: Set up PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2' 
+      
+      - name: Install composer dependencies
+        run: composer install --no-dev --optimize-autoloader
+
+
+      - name: Deploy via FTP
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ secrets.FTP_HOST }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          local-dir: ./
+          server-dir: ${{ secrets.FTP_REMOTE_PATH }}
+          port: 21
+          timeout: 60000
