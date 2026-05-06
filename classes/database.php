@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . "/../config/config.php";
 
+Config::init();
+
 class database {
     private $conn;
 
@@ -9,7 +11,7 @@ class database {
             Config::$hostname,
             Config::$username,
             Config::$password,
-            Config::$database
+            Config::$dbName
         );
         if ($this->conn->connect_error) {
             die(json_encode(["status" => false, "message" => "Connection failed"]));
