@@ -1,22 +1,37 @@
 async function popolaSelezioni() {
-    const res = await fetch("api/getProduct.php");
-    const json = await res.json();
+    try {
+        const res = await fetch("api/getProduct.php");
+        const json = await res.json();
 
-    const s = document.getElementById("selectServizio");
-    const p = document.getElementById("selectPezzo");
-    const a = document.getElementById("selectAccessorio");
+        if (!json.status || !json.data) {
+            console.error("Errore nella risposta:", json.message || "Risposta non valida");
+            return;
+        }
 
-    json.data.servizi.forEach(serv => {
-        s.innerHTML += `<option value="${serv.Codice}">${serv.Descrizione}</option>`;
-    });
+        const s = document.getElementById("selectServizio");
+        const p = document.getElementById("selectPezzo");
+        const a = document.getElementById("selectAccessorio");
 
-    json.data.pezzi.forEach(pez => {
-        p.innerHTML += `<option value="${pez.CodicePezzo}">${pez.Descrizione}</option>`;
-    });
+        if (json.data.servizi) {
+            json.data.servizi.forEach(serv => {
+                s.innerHTML += `<option value="${serv.Codice}">${serv.Descrizione}</option>`;
+            });
+        }
 
-    json.data.accessori.forEach(acc => {
-        a.innerHTML += `<option value="${acc.CodiceArticolo}">${acc.Descrizione}</option>`;
-    });
+        if (json.data.pezzi) {
+            json.data.pezzi.forEach(pez => {
+                p.innerHTML += `<option value="${pez.CodicePezzo}">${pez.Descrizione}</option>`;
+            });
+        }
+
+        if (json.data.accessori) {
+            json.data.accessori.forEach(acc => {
+                a.innerHTML += `<option value="${acc.CodiceArticolo}">${acc.Descrizione}</option>`;
+            });
+        }
+    } catch (error) {
+        console.error("Errore nel caricamento dei dati:", error);
+    }
 }
 
 document.getElementById("searchBtn").onclick = async () => {
